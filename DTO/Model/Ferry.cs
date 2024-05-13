@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Model
+namespace DTO.Model
 {
-    internal class Ferry
+    public class Ferry
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -21,25 +21,25 @@ namespace DataAccess.Model
 
         public Ferry(int id, string name, int maxCars)
         {
-            this.Id = id;
-            this.Name = name;
-            this.PricePerGuest = 99;
-            this.PricePerCar = 197;
-            this.MaxGuests = maxCars*5+10;
-            this.MaxCars = maxCars;
-            this.Guests = new List<Guest>();
-            this.Cars = new List<Car>();
+            Id = id;
+            Name = name;
+            PricePerGuest = 99;
+            PricePerCar = 197;
+            MaxGuests = maxCars * 5 + 10;
+            MaxCars = maxCars;
+            Guests = new List<Guest>();
+            Cars = new List<Car>();
         }
 
         public Ferry(string name, int maxCars)
         {
-            this.Name = name;
-            this.PricePerGuest = 99;
-            this.PricePerCar = 197;
-            this.MaxGuests = maxCars * 5 + 10;
-            this.MaxCars = maxCars;
-            this.Guests = new List<Guest>();
-            this.Cars = new List<Car>();
+            Name = name;
+            PricePerGuest = 99;
+            PricePerCar = 197;
+            MaxGuests = maxCars * 5 + 10;
+            MaxCars = maxCars;
+            Guests = new List<Guest>();
+            Cars = new List<Car>();
         }
     }
 }

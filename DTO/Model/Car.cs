@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Model
+namespace DTO.Model
 {
-    internal class Car
+    public class Car
     {
         public int Id { get; set; }
         public string NumberPlate { get; set; }

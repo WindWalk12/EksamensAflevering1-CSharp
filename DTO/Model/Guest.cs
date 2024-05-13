@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Model
+namespace DTO.Model
 {
-    internal class Guest
+    public class Guest
     {
         public int Id { get; set; }
         public string Name { get; set; }
