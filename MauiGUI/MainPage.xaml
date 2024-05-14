@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiGUI.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <Label Text="The Ferry Company" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <VerticalStackLayout Grid.Column="0" Grid.Row="0" HorizontalOptions="Center" Spacing="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                            <VerticalStackLayout Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Spacing="10">
+                            <Picker x:Name="FerryPicker"
+                                    Title="Select a ferry"
+                                    ItemDisplayBinding="{Binding Name}"
+                                    WidthRequest="150"
+                                    SelectedIndexChanged="FerryPicker_SelectedIndexChanged"></Picker>
+                            <Label Text="Guests"></Label>
+                            <Entry x:Name="EntryGuests" IsReadOnly="True"></Entry>
+                            <Label Text="Cars"></Label>
+                            <Entry x:Name="EntryCars" IsReadOnly="True"></Entry>
+                            <Label Text="Total price"></Label>
+                            <Entry x:Name="EntryTotalPrice" IsReadOnly="True"></Entry>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" Spacing="10">
+                            <Label Text="Price per guest"></Label>
+                            <Entry x:Name="EntryPricePerGuest"></Entry>
+                            <Label Text="Price per car"></Label>
+                            <Entry x:Name="EntryPricePerCar"></Entry>
+                            <Label Text="Space for guests"></Label>
+                            <Entry x:Name="EntrySpaceForGuests"></Entry>
+                            <Label Text="Space for cars"></Label>
+                            <Entry x:Name="EntrySpaceForCars"></Entry>
+                        </VerticalStackLayout>
+                    </Grid>
+                    
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Grid.Row="0" HorizontalOptions="Center">
+                    <Button x:Name="BtnUpdateFerry" Text="Update ferry" Clicked="BtnUpdateFerry_Clicked"></Button>
+                </VerticalStackLayout>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

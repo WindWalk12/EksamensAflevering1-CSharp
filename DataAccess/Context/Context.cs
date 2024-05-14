@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DataAccess.Model;
 
 namespace DataAccess.Context
@@ -22,26 +17,28 @@ namespace DataAccess.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=LAPTOP-MNTPTOQP\\SQLEXPRESS;Initial Catalog=EksamensCsharpDB;Integrated Security=SSPI; TrustServerCertificate=true");
+            // Change Accordingly
+            //optionsBuilder.UseSqlServer("Data Source=LAPTOP-MNTPTOQP\\SQLEXPRESS;Initial Catalog=EksamensCsharpDB;Integrated Security=SSPI; TrustServerCertificate=true");
+            optionsBuilder.UseSqlServer("Data Source=FONMU-FCBTUU1FT\\SQLEXPRESS;Initial Catalog=EksamensCsharpDB;Integrated Security=SSPI; TrustServerCertificate=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Ferry>().HasData(new Ferry[]
             {
-                new Ferry{Id = 1, Name="FerryExpress", MaxCars = 10},
-                new Ferry{Id = 2, Name="Luling Ferry", MaxCars = 15}
+                new Ferry(1, "FerryExpress", 10),
+                new Ferry(2, "Luling Ferry", 15)
             });
             modelBuilder.Entity<Guest>().HasData(new Guest[]
             {
-                new Guest{Id = 1, Name = "Maria", Sex = "Female", CarId = null, FerryId = 1},
-                new Guest{Id = 2, Name = "Gunner", Sex = "Male", CarId = 1, FerryId = null},
-                new Guest{Id = 3, Name = "Emily", Sex = "Female", CarId = null, FerryId = 2}
+                new Guest(1, "Maria", "Female", null, 1),
+                new Guest(2, "Gunner", "Male", 1, null),
+                new Guest(3, "Emily", "Female", null, 2)
             });
 
             modelBuilder.Entity<Car>().HasData(new Car[]
             {
-                new Car{Id = 1, NumberPlate = "DF12345", FerryId = 1}
+                new Car(1, "DF12345", 1)
             });
         }
 

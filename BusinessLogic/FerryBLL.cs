@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class FerryBLL
+    public static class FerryBLL
     {
-        public static Ferry GetFerry(int id)
+        public static Ferry GetFerryById(int id)
         {
             return FerryRepository.GetFerry(id);
         }

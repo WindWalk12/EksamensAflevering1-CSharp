@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B2FB85F1-451E-43A1-BB4C-7D5143113125}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B2FB85F1-451E-43A1-BB4C-7D5143113125}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{C5C563EC-C6B3-49D3-B334-9EB5C2E05779}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{C5C563EC-C6B3-49D3-B334-9EB5C2E05779}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{DB371341-BF71-4447-B4B4-581D113F1AD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{DB371341-BF71-4447-B4B4-581D113F1AD6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{F0E3770E-2792-4A9C-A405-611C47B89EB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiGUI", "MauiGUI\MauiGUI.csproj", "{2E5BAEFF-0744-4D90-AB66-7E7CD6A83593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,16 @@ Global
 		{DB371341-BF71-4447-B4B4-581D113F1AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB371341-BF71-4447-B4B4-581D113F1AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB371341-BF71-4447-B4B4-581D113F1AD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0E3770E-2792-4A9C-A405-611C47B89EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0E3770E-2792-4A9C-A405-611C47B89EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0E3770E-2792-4A9C-A405-611C47B89EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0E3770E-2792-4A9C-A405-611C47B89EB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E5BAEFF-0744-4D90-AB66-7E7CD6A83593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E5BAEFF-0744-4D90-AB66-7E7CD6A83593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E5BAEFF-0744-4D90-AB66-7E7CD6A83593}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2E5BAEFF-0744-4D90-AB66-7E7CD6A83593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E5BAEFF-0744-4D90-AB66-7E7CD6A83593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E5BAEFF-0744-4D90-AB66-7E7CD6A83593}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

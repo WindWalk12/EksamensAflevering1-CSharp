@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class CarBLL
+    public static class CarBLL
     {
-        public static Car GetCar(int id)
+        public static Car GetCarById(int id)
         {
             return CarRepository.GetCar(id);
         }

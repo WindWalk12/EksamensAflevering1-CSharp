@@ -8,9 +8,9 @@ using DTO.Model;
 
 namespace BusinessLogic
 {
-    public class GuestBLL
+    public static class GuestBLL
     {
-        public static Guest GetGuest(int id)
+        public static Guest GetGuestById(int id)
         {
             return GuestRepository.GetGuest(id);
         }
