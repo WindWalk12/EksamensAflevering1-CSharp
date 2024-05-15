@@ -10,7 +10,6 @@
             <Picker x:Name="FerryPicker"
                     ItemDisplayBinding="{Binding Name}"
                     WidthRequest="150"
-                    SelectedIndexChanged="FerryPicker_SelectedIndexChanged"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"/>
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="50">
@@ -18,12 +17,22 @@
                     <Label x:Name="lblUsingCar" Text="Do you travel by car?"></Label>
                     <CheckBox x:Name="chkUsingCar" BindingContext="{x:Reference lblUsingCar}" CheckedChanged="CheckBox_CheckedChanged"></CheckBox>
                     <Label x:Name="lblNumberPlate" Text="Number plate" IsVisible="false"></Label>
-                    <Entry x:Name="EntryNumberPlate" IsVisible="false"></Entry>
+                    <Entry x:Name="entryNumberPlate" IsVisible="false"></Entry>
+                    <Button x:Name="btnAddPerson" Text="Add another guest" Clicked="btnAddPerson_Clicked"></Button>
+                    <Button x:Name="btnBook" Text="Book" Clicked="btnBook_Clicked"></Button>
+                    <Label x:Name="lblBookingResponse" IsVisible="false"></Label>
                 </VerticalStackLayout>
                 <VerticalStackLayout Spacing="10">
-                    <Label Text="Add guests to ferry"></Label>
-                    <Label Text="Name"></Label>
-                    <Entry x:Name="EntryGuestName"></Entry>
+                    <VerticalStackLayout x:Name="vslGuests" Spacing="10" WidthRequest="150">
+                        <Label Text="Add guests to ferry"></Label>
+                        <Label Text="Name"></Label>
+                        <Entry x:Name="entryGuestName"></Entry>
+                        <Label Text="Sex"></Label>
+                        <Entry x:Name="entryGuestSex"></Entry>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+                <VerticalStackLayout x:Name="vslGuests2" Spacing="10" WidthRequest="150">
+                    <Label></Label>
                 </VerticalStackLayout>
             </HorizontalStackLayout>
         </VerticalStackLayout>

@@ -15,9 +15,10 @@ namespace BusinessLogic
             return GuestRepository.GetGuest(id);
         }
 
-        public static void AddGuest(Guest guest)
+        public static Guest AddGuest(Guest guest)
         {
             GuestRepository.AddGuest(guest);
+            return guest;
         }
 
         public static List<Guest> GetAllGuests()

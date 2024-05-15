@@ -15,9 +15,10 @@ namespace BusinessLogic
             return FerryRepository.GetFerry(id);
         }
 
-        public static void AddFerry(Ferry ferry)
+        public static Ferry AddFerry(Ferry ferry)
         {
             FerryRepository.AddFerry(ferry);
+            return ferry;
         }
 
         public static List<Ferry> GetAllFerries()

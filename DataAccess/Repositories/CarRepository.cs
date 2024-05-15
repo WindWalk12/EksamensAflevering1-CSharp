@@ -1,11 +1,5 @@
 ﻿using DataAccess.Mappers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DTO.Model;
-using DataAccess.Mappers;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories
