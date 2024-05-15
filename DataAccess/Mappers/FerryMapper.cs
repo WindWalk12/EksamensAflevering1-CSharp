@@ -11,11 +11,11 @@ namespace DataAccess.Mappers
     {
         public static DTO.Model.Ferry Map(Ferry ferry)
         {
-            return new DTO.Model.Ferry(ferry.Id, ferry.Name, ferry.MaxCars);
+            return new DTO.Model.Ferry(ferry.Id, ferry.Name, ferry.MaxCars, ferry.PricePerGuest, ferry.PricePerCar);
         }
         public static Ferry Map(DTO.Model.Ferry ferry)
         {
-            return new Ferry(ferry.Id, ferry.Name, ferry.MaxCars);
+            return new Ferry(ferry.Id, ferry.Name, ferry.MaxCars, ferry.PricePerGuest, ferry.PricePerCar);
         }
 
         public static List<DTO.Model.Ferry> Map(List<Ferry> ferries)

@@ -4,14 +4,20 @@
              x:Class="MauiGUI.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout Padding="30,0" Spacing="25">
-            <Label Text="The Ferry Company" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+        <VerticalStackLayout Padding="30,0" Spacing="5">
+            <Label Text="Info about Ferries" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+            <Label Text="Select a ferry" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+            <Picker x:Name="FerryPicker"
+                ItemDisplayBinding="{Binding Name}"
+                WidthRequest="150"
+                SelectedIndexChanged="FerryPicker_SelectedIndexChanged"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
@@ -24,12 +30,7 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition Width="200"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                            <VerticalStackLayout Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Spacing="10">
-                            <Picker x:Name="FerryPicker"
-                                    Title="Select a ferry"
-                                    ItemDisplayBinding="{Binding Name}"
-                                    WidthRequest="150"
-                                    SelectedIndexChanged="FerryPicker_SelectedIndexChanged"></Picker>
+                        <VerticalStackLayout Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Spacing="10">
                             <Label Text="Guests"></Label>
                             <Entry x:Name="EntryGuests" IsReadOnly="True"></Entry>
                             <Label Text="Cars"></Label>
@@ -46,15 +47,43 @@
                             <Entry x:Name="EntrySpaceForGuests"></Entry>
                             <Label Text="Space for cars"></Label>
                             <Entry x:Name="EntrySpaceForCars"></Entry>
+                            <Button x:Name="BtnUpdateFerry" Text="Update ferry" Clicked="BtnUpdateFerry_Clicked"></Button>
                         </VerticalStackLayout>
                     </Grid>
-                    
                 </VerticalStackLayout>
-                <VerticalStackLayout Grid.Column="1" Grid.Row="0" HorizontalOptions="Center">
-                    <Button x:Name="BtnUpdateFerry" Text="Update ferry" Clicked="BtnUpdateFerry_Clicked"></Button>
+                <VerticalStackLayout Grid.Column="1" Grid.Row="0" HorizontalOptions="Start">
+                    <Label Text="Cars list"></Label>
+                    <CollectionView HeightRequest="150" x:Name="CarsView">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <HorizontalStackLayout Spacing="7">
+                                    <Label Text="Number plate"></Label>
+                                    <Label Text="{Binding NumberPlate}"></Label>
+                                    <Label Text="Ferry id"></Label>
+                                    <Label Text="{Binding FerryId}"></Label>
+                                </HorizontalStackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label Text="Guests list"></Label>
+                    <CollectionView HeightRequest="150" x:Name="GuestsView">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <HorizontalStackLayout Spacing="7">
+                                    <Label Text="Name: "></Label>
+                                    <Label Text="{Binding Name}"></Label>
+                                    <Label Text="Sex: "></Label>
+                                    <Label Text="{Binding Sex}"></Label>
+                                    <Label Text="Car id: "></Label>
+                                    <Label Text="{Binding CarId}"></Label>
+                                    <Label Text="Ferry id: "></Label>
+                                    <Label Text="{Binding FerryId}"></Label>
+                                </HorizontalStackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </VerticalStackLayout>
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

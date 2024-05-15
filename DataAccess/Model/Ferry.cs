@@ -19,23 +19,23 @@ namespace DataAccess.Model
 
         public Ferry() { }
 
-        public Ferry(int id, string name, int maxCars)
+        public Ferry(int id, string name, int maxCars, int pricePerGuest = 99, int pricePerCar = 197)
         {
             this.Id = id;
             this.Name = name;
-            this.PricePerGuest = 99;
-            this.PricePerCar = 197;
+            this.PricePerGuest = pricePerGuest;
+            this.PricePerCar = pricePerCar;
             this.MaxGuests = maxCars*5+10;
             this.MaxCars = maxCars;
             this.Guests = new List<Guest>();
             this.Cars = new List<Car>();
         }
 
-        public Ferry(string name, int maxCars)
+        public Ferry(string name, int maxCars, int pricePerGuest = 99, int pricePerCar = 197)
         {
             this.Name = name;
-            this.PricePerGuest = 99;
-            this.PricePerCar = 197;
+            this.PricePerGuest = pricePerGuest;
+            this.PricePerCar = pricePerCar;
             this.MaxGuests = maxCars * 5 + 10;
             this.MaxCars = maxCars;
             this.Guests = new List<Guest>();

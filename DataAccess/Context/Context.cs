@@ -18,8 +18,8 @@ namespace DataAccess.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Change Accordingly
-            //optionsBuilder.UseSqlServer("Data Source=LAPTOP-MNTPTOQP\\SQLEXPRESS;Initial Catalog=EksamensCsharpDB;Integrated Security=SSPI; TrustServerCertificate=true");
-            optionsBuilder.UseSqlServer("Data Source=FONMU-FCBTUU1FT\\SQLEXPRESS;Initial Catalog=EksamensCsharpDB;Integrated Security=SSPI; TrustServerCertificate=true");
+            optionsBuilder.UseSqlServer("Data Source=LAPTOP-MNTPTOQP\\SQLEXPRESS;Initial Catalog=EksamensCsharpDB;Integrated Security=SSPI; TrustServerCertificate=true");
+            //optionsBuilder.UseSqlServer("Data Source=FONMU-FCBTUU1FT\\SQLEXPRESS;Initial Catalog=EksamensCsharpDB;Integrated Security=SSPI; TrustServerCertificate=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

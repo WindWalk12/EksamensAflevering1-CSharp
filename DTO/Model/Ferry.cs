@@ -19,23 +19,23 @@ namespace DTO.Model
 
         public Ferry() { }
 
-        public Ferry(int id, string name, int maxCars)
+        public Ferry(int id, string name, int maxCars, int pricePerGuest = 99, int pricePerCar = 197)
         {
             Id = id;
             Name = name;
-            PricePerGuest = 99;
-            PricePerCar = 197;
+            PricePerGuest = pricePerGuest;
+            PricePerCar = pricePerCar;
             MaxGuests = maxCars * 5 + 10;
             MaxCars = maxCars;
             Guests = new List<Guest>();
             Cars = new List<Car>();
         }
 
-        public Ferry(string name, int maxCars)
+        public Ferry(string name, int maxCars, int pricePerGuest = 99, int pricePerCar = 197)
         {
             Name = name;
-            PricePerGuest = 99;
-            PricePerCar = 197;
+            PricePerGuest = pricePerGuest;
+            PricePerCar = pricePerCar;
             MaxGuests = maxCars * 5 + 10;
             MaxCars = maxCars;
             Guests = new List<Guest>();

@@ -3,10 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiGUI.Booking"
              Title="Booking">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="5">
+            <Label Text="Book a trip" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+            <Label Text="Select a ferry" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+            <Picker x:Name="FerryPicker"
+                    ItemDisplayBinding="{Binding Name}"
+                    WidthRequest="150"
+                    SelectedIndexChanged="FerryPicker_SelectedIndexChanged"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="50">
+                <VerticalStackLayout Spacing="10">
+                    <Label x:Name="lblUsingCar" Text="Do you travel by car?"></Label>
+                    <CheckBox x:Name="chkUsingCar" BindingContext="{x:Reference lblUsingCar}" CheckedChanged="CheckBox_CheckedChanged"></CheckBox>
+                    <Label x:Name="lblNumberPlate" Text="Number plate" IsVisible="false"></Label>
+                    <Entry x:Name="EntryNumberPlate" IsVisible="false"></Entry>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Add guests to ferry"></Label>
+                    <Label Text="Name"></Label>
+                    <Entry x:Name="EntryGuestName"></Entry>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
