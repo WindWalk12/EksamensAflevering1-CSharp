@@ -1,6 +1,4 @@
-using BusinessLogic;
 using DTO.Model;
-using Newtonsoft.Json;
 using System.Net.Http.Json;
 
 namespace MauiGUI;
@@ -23,6 +21,7 @@ public partial class Booking : ContentPage
         HttpClient client = new HttpClient();
         List<Ferry> ferries = await client.GetFromJsonAsync<List<Ferry>>("http://localhost:5298/api/v1/Ferry/GetAllFerries");
         FerryPicker.ItemsSource = ferries;
+        FerryPicker.SelectedIndex = 0;
     }
 
     private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -65,47 +64,52 @@ public partial class Booking : ContentPage
     {
         if (FerryPicker.SelectedItem != null)
         {
+            HttpClient client = new HttpClient();
             Ferry ferry = (Ferry)FerryPicker.SelectedItem;
             int ferryId = ferry.Id;
-            if (chkUsingCar.IsChecked == true && entryNumberPlate.Text.Length == 7 && entryGuestName.Text != null && entryGuestSex != null)
+            Ferry ferryDetails = await client.GetFromJsonAsync<Ferry>($"http://localhost:5298/api/v1/Ferry/GetFerryDetails/{ferryId}");
+            if (entryGuestName.Text != null && entryGuestSex.Text != null && ferryDetails.Guests.Count + guestNameEntries.Count <= ferryDetails.MaxGuests )
             {
-                HttpClient client = new HttpClient();
-                Car newCar = new Car(entryNumberPlate.Text, ferryId);
-                newCar.Guests = new List<Guest>();
-                await client.PostAsJsonAsync<Car>("http://localhost:5298/api/v1/Car/AddCar", newCar);
-                List<Car> cars = await client.GetFromJsonAsync<List<Car>>("http://localhost:5298/api/v1/Car/GetAllCars");
-                int newCarId = cars.Last().Id;
-                if (newCarId != 0)
+                if (chkUsingCar.IsChecked == true && entryNumberPlate.Text.Length == 7 && ferryDetails.Cars.Count < ferryDetails.MaxCars)
+                {
+                    Car newCar = new Car(entryNumberPlate.Text, ferryId);
+                    newCar.Guests = new List<Guest>();
+                    await client.PostAsJsonAsync<Car>("http://localhost:5298/api/v1/Car/AddCar", newCar);
+                    List<Car> cars = await client.GetFromJsonAsync<List<Car>>("http://localhost:5298/api/v1/Car/GetAllCars");
+                    int newCarId = cars.Last().Id;
+                    if (newCarId != 0)
+                    {
+                        for (int i = 0; i < guestNameEntries.Count; i++)
+                        {
+                            if (guestNameEntries[i].Text != null && guestSexEntries[i].Text != null)
+                            {
+                                Guest newGuest = new Guest(guestNameEntries[i].Text, guestSexEntries[i].Text, newCarId, null);
+                                await client.PostAsJsonAsync<Guest>("http://localhost:5298/api/v1/Guest/AddGuest", newGuest);
+                            }
+                        }
+                    }
+                }
+                else
                 {
                     for (int i = 0; i < guestNameEntries.Count; i++)
                     {
-                        if (guestNameEntries[i].Text.Length > 0 && guestSexEntries[i].Text.Length > 0)
+                        if (guestNameEntries[i].Text != null && guestSexEntries[i].Text != null)
                         {
-                            Guest newGuest = new Guest(guestNameEntries[i].Text, guestSexEntries[i].Text, newCarId, null);
+                            Guest newGuest = new Guest(guestNameEntries[i].Text, guestSexEntries[i].Text, null, ferryId);
                             await client.PostAsJsonAsync<Guest>("http://localhost:5298/api/v1/Guest/AddGuest", newGuest);
                         }
                     }
-                    lblBookingResponse.Text = "Booking successful";
-                    lblBookingResponse.IsVisible = true;
-                }
-            } else
-            {
-                HttpClient client = new HttpClient();
-                for (int i = 0; i < guestNameEntries.Count; i++)
-                {
-                    if (guestNameEntries[i].Text != null && guestSexEntries[i].Text != null)
-                    {
-                        Guest newGuest = new Guest(guestNameEntries[i].Text, guestSexEntries[i].Text, null, ferryId);
-                        await client.PostAsJsonAsync<Guest>("http://localhost:5298/api/v1/Guest/AddGuest", newGuest);
-                    }
                 }
                 lblBookingResponse.Text = "Booking successful";
-                lblBookingResponse.IsVisible = true;
+                
+            } else
+            {
+                lblBookingResponse.Text = "Booking unsuccessful";
             }
         } else
         {
             lblBookingResponse.Text = "Booking unsuccessful";
-            lblBookingResponse.IsVisible = true;
         }
+        lblBookingResponse.IsVisible = true;
     }
 }

@@ -46,5 +46,14 @@ namespace DataAccess.Repositories
                 }
             }
         }
+
+        public static void DeleteCar(Car car)
+        {
+            using (Context.Context context = new Context.Context())
+            {
+                context.Cars.Remove(CarMapper.Map(car));
+                context.SaveChanges();
+            }
+        }
     }
 }

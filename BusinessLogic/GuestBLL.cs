@@ -25,5 +25,15 @@ namespace BusinessLogic
         {
             return GuestRepository.GetGuests();
         }
+
+        public static void DeleteGuest(Guest guest)
+        {
+            GuestRepository.DeleteGuest(guest);
+        }
+
+        public static void DeleteGuests(List<Guest> guests)
+        {
+            GuestRepository.DeleteGuests(guests);
+        }
     }
 }

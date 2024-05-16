@@ -28,5 +28,19 @@ namespace WebAPI.Controllers
         {
             return GuestBLL.GetAllGuests();
         }
+
+        [HttpPost]
+        [Route("DeleteGuest")]
+        public void DeleteGuest(Guest guest)
+        {
+            GuestBLL.DeleteGuest(guest);
+        }
+
+        [HttpPost]
+        [Route("DeleteGuests")]
+        public void DeleteGuests(List<Guest> guests)
+        {
+            GuestBLL.DeleteGuests(guests);
+        }
     }
 }

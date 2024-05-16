@@ -34,5 +34,23 @@ namespace DataAccess.Repositories
                 return GuestMapper.Map(context.Guests.ToList());
             }
         }
+
+        public static void DeleteGuest(Guest guest)
+        {
+            using (Context.Context context = new Context.Context())
+            {
+                context.Guests.Remove(GuestMapper.Map(guest));
+                context.SaveChanges();
+            }
+        }
+
+        public static void DeleteGuests(List<Guest> guests)
+        {
+            using (Context.Context context = new Context.Context())
+            {
+                context.Guests.RemoveRange(GuestMapper.Map(guests));
+                context.SaveChanges();
+            }
+        }
     }
 }

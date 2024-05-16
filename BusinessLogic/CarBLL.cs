@@ -29,5 +29,10 @@ namespace BusinessLogic
         {
             return CarRepository.GetCarDetails(id);
         }
+
+        public static void DeleteCar(Car car)
+        {
+            CarRepository.DeleteCar(car);
+        }
     }
 }

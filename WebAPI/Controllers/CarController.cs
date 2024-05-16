@@ -35,5 +35,12 @@ namespace WebAPI.Controllers
         {
             return CarBLL.GetCarDetails(id);
         }
+
+        [HttpPost]
+        [Route("DeleteCar")]
+        public void DeleteCar(Car car)
+        {
+            CarBLL.DeleteCar(car);
+        }
     }
 }
