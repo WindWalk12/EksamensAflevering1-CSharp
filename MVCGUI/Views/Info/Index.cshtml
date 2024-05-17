@@ -1,0 +1,45 @@
+﻿@*
+*@
+@{
+}
+<div>
+    <h3>Pick a ferry</h3>
+    @using (Html.BeginForm("Index", "Info", FormMethod.Get))
+    {
+        @Html.DropDownList("Ferries")
+        <input type="submit" value="Show info"/>
+    }
+</div>
+<br />
+@if (ViewBag.pickedId != null)
+{
+    <h3>Info</h3>
+    <div>
+        @Html.Label("Price per guest:")
+        @Html.Display("PricePerGuest")
+    </div>
+    <div>
+        @Html.Label("Price per car:")
+        @Html.Display("PricePerCar")
+    </div>
+    <div>
+        @Html.Label("Total guests:")
+        @Html.Display("TotalGuests")
+    </div>
+    <div>
+        @Html.Label("Total cars:")
+        @Html.Display("TotalCars")
+    </div>
+    <div>
+        @Html.Label("Total price:")
+        @Html.Display("TotalPrice")
+    </div>
+    <div>
+        @Html.Label("Guests on ferry")
+        @Html.ListBox("Guests")
+    </div>
+    <div>
+        @Html.Label("Cars on ferry")
+        @Html.ListBox("Cars")
+    </div>
+}
